@@ -1,42 +1,100 @@
-<<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horario</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      text-align: center;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      min-width: 80px;
+    }
+  </style>
 </head>
 <body>
-    <table border="1" sumary="Mi horario">
-        <caption>Horario</caption>
-        <tr>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
-        </tr>
-        <tr>
-            <td rowspan="2">Proyecto</td>
-            <td rowspan="2">Servicios</td>
-            <td>Ipe II</td>
-            <td rowspan="3">Servicios</td>
-            <td rowspan="2">SOR</td>
-        </tr>
-        <tr>
-            <td>Seguridad</td>
-        </tr>
-        <tr>
-            <td rowspan="2">IPE II</td>
-            <td>APWEB</td>
-            <td>HLC</td>
-            <td>Servicios</td>
-        </tr>
-        <tr>
-            <td>Seguridad</td>
-            <td rowspan="2">SOR</td>
-            <td>Seguridad</td>
-            <td>Seguridad</td>
-        </tr>
-    </table>
+  <table id="horario" summary="Mi horario">
+    <caption><b>Horario</b></caption>
+    <tr>
+      <th>Horas</th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miércoles</th>
+      <th>Jueves</th>
+      <th>Viernes</th>
+    </tr>
+    <tr>
+      <td>8:15<br>9:15</td>
+      <td rowspan="2">Proyecto</td>
+      <td rowspan="2">Servicios</td>
+      <td>Ipe II</td>
+      <td rowspan="3">Servicios</td>
+      <td rowspan="2">SOR</td>
+    </tr>
+    <tr>
+      <td>9:15<br>10:15</td>
+      <td>Seguridad</td>
+    </tr>
+    <tr>
+      <td>10:15<br>11:15</td>
+      <td>IPE II</td>
+      <td>APWEB</td>
+      <td>HLC</td>
+      <td>Servicios</td>
+    </tr>
+    <tr>
+      <td>11:15<br>11:45</td>
+      <td colspan="5">Recreo</td>
+    </tr>
+    <tr>
+      <td>11:45<br>12:45</td>
+      <td>IPE II</td>
+      <td>Seguridad</td>
+      <td rowspan="2">SOR</td>
+      <td>Seguridad</td>
+      <td>Seguridad</td>
+    </tr>
+    <tr>
+      <td>8:15<br>9:15</td>
+      <td rowspan="2">Inglés</td>
+      <td rowspan="2">SOR</td>
+      <td>APLWEB</td>
+      <td>APLWEB</td>
+    </tr>
+    <tr>
+      <td>8:15<br>9:15</td>
+      <td>APLWEB</td>
+      <td>HLC</td>
+      <td>HLC</td>
+    </tr>
+  </table>
+
+  <script>
+    const colores = {
+      "Proyecto": "#ff9999",
+      "Servicios": "#a0c4ff",
+      "Ipe II": "#ffd6a5",
+      "IPE II": "#ffd6a5",
+      "Seguridad": "#caffbf",
+      "SOR": "#bdb2ff",
+      "HLC": "#fdffb6",
+      "APWEB": "#ffadad",
+      "APLWEB": "#ffc6ff",
+      "Inglés": "#9bf6ff",
+      "Recreo": "#f54927"
+    };
+
+    document.querySelectorAll("#horario td").forEach(td => {
+      const texto = td.textContent.trim();
+      if (colores[texto]) {
+        td.style.backgroundColor = colores[texto];
+      }
+    });
+  </script>
 </body>
 </html>
